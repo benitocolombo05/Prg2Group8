@@ -1,7 +1,4 @@
 var productsController = {
-    index: function(req, res) {
-        res.render("products");
-    }
+    index: (req, res) => res.render("products.ejs"),
 };
-
 module.exports = productsController;
