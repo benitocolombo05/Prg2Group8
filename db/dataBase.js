@@ -1,11 +1,11 @@
 const db = {
     perfil: {
-        email: "usuario@example.com",
+        email: "Agustin12@digitalhouse.com",
         usuario: "Agustin",
         contrasena: "password123",
         fechaNacimiento: "1990-01-01",
         nroDocumento: 12345678,
-        fotoPerfil: "/imagenes/products/default-image.png"
+        fotoPerfil: "/images/products/images.png"
     },
     productos: [
         {
@@ -13,7 +13,7 @@ const db = {
             nombre: "Producto 1",
             descripcion: "Descripcion producto 1",
             precio: 1000,
-            imagen: "/imagenes/products/default-image.png",
+            imagen: "/images/products/default-image.png",
             comentarios: [
                 {
                     usuario: "comprador1",
