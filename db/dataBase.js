@@ -1,7 +1,7 @@
 const db = {
-    usuario: {
+    perfil: {
         email: "usuario@example.com",
-        usuario: "usuario123",
+        usuario: "Agustin",
         contrasena: "password123",
         fechaNacimiento: "1990-01-01",
         nroDocumento: 12345678,

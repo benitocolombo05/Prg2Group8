@@ -1,9 +1,14 @@
+const db = require("../db/dataBase");
 const userController = {
-    login: (req, res) => res.render('login'),
-    register: (req, res) => res.render('register'),
-    profile: (req, res) => res.render('profile'),
-    buscar: (req, res) => res.render('search-results'),
+    login: (req, res) => res.render('login.ejs'),
+    register: (req, res) => res.render('register.ejs'),
+    profile: (req, res) => res.render('profile.ejs', { usuario: db.perfil.usuario }),
+    buscar: (req, res) => res.render('search-results.ejs'),
 }
 
 module.exports = userController
+
+
+
+
 
