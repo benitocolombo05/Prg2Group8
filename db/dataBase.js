@@ -10,20 +10,20 @@ const db = {
     productos: [
         {
             id: 1,
-            nombre: "Producto 1",
-            descripcion: "Descripcion producto 1",
+            nombre: "Cafetera",
+            descripcion: "Descubre el placer de un café perfecto con esta cafetera automática de alta gama. Su sistema de extracción de alta presión garantiza un sabor intenso y un aroma inigualable en cada taza. Con un diseño moderno y compacto, se adapta a cualquier cocina y permite preparar desde un espresso fuerte hasta un cappuccino cremoso gracias a su espumador de leche integrado. Su depósito de agua de gran capacidad evita recargas constantes y su compatibilidad con café molido y cápsulas ofrece mayor versatilidad. Disfruta de la calidad de una cafetería en la comodidad de tu hogar.",
             precio: 1000,
-            imagen: "/images/products/default-image.png",
+            imagen: "/images/products/img-cafetera-moulinex.jpg",
             comentarios: [
                 {
-                    usuario: "comprador1",
+                    usuario: "zapallo",
                     texto: "Excelente producto, muy recomendado!",
-                    imagenPerfil: "/imagenes/products/default-image.png"
+                    imagenPerfil: "/images/products/default-image.png"
                 },
                 {
-                    usuario: "comprador2",
+                    usuario: "tecnonauta",
                     texto: "No era lo que esperaba, medio pelo.",
-                    imagenPerfil: "/imagenes/products/default-image.png"
+                    imagenPerfil: "/images/products/default-image.png"
                 }
             ]
         },
@@ -37,7 +37,7 @@ const db = {
                 {
                     usuario: "comprador3",
                     texto: "Gran producto!",
-                    imagenPerfil: "/imagenes/products/default-image.png"
+                    imagenPerfil: "/images/products/default-image.png"
                 }
             ]
         },
@@ -50,7 +50,7 @@ const db = {
             comentarios: [{
                 usuario: "comprador1",
                 texto: "Excelente producto, muy recomendado!",
-                imagenPerfil: "/imagenes/products/default-image.png"
+                imagenPerfil: "/images/products/default-image.png"
             },
             {
                 usuario: "comprador2",
