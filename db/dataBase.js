@@ -1,11 +1,11 @@
 const db = {
     perfil: {
         email: "Agustin12@digitalhouse.com",
-        usuario: "Agustin",
+        usuario: "Jose Maria ",
         contrasena: "password123",
         fechaNacimiento: "1990-01-01",
         nroDocumento: 12345678,
-        fotoPerfil: "/images/products/images.png"
+        fotoPerfil: "/images/users/sopa.jpeg"
     },
     productos: [
         {
@@ -54,7 +54,7 @@ const db = {
                     usuario: "Juan",
                     texto: "Ideal para regalar, a todos les gustó.",
                     imagenPerfil: "/images/users/ricky.jpg"
-                },{
+                }, {
                     usuario: "Tomas",
                     texto: "Cumple con lo prometido, lo recomiendo.",
                     imagenPerfil: "/images/users/sopa.jpeg"
@@ -64,9 +64,9 @@ const db = {
         {
             id: 2,
             nombre: "Producto 2",
-            descripcion: "Descripcion producto 2",
+            descripcion: "Robot de cocina multifuncional que mezcla, tritura, cocina al vapor y pesa ingredientes con precisión, ideal para recetas rápidas y elaboradas con mínima intervención.",
             precio: 1500,
-            imagen: "/imagenes/products/default-image.png",
+            imagen: "/images/products/airfry.webp",
             comentarios: [
                 {
                     usuario: "comprador3",
@@ -78,9 +78,9 @@ const db = {
         {
             id: 3,
             nombre: "Producto 3",
-            descripcion: "Descripcion producto 3",
+            descripcion: "Olla de aluminio fundido con recubrimiento antiadherente que conserva el calor y cocina de manera uniforme, permitiendo preparar comidas saludables con menos grasa y energía.",
             precio: 1200,
-            imagen: "/imagenes/products/default-image.png",
+            imagen: "/images/products/Cacerola.jpg",
             comentarios: [{
                 usuario: "comprador1",
                 texto: "Excelente producto, muy recomendado!",
@@ -95,9 +95,9 @@ const db = {
         {
             id: 4,
             nombre: "Producto 4",
-            descripcion: "Descripcion producto 4",
+            descripcion: "Freidora de aire que cocina con poco o nada de aceite, logrando alimentos crujientes y saludables mediante circulación de aire caliente, perfecta para freír, hornear y asar.",
             precio: 1800,
-            imagen: "/imagenes/products/default-image.png",
+            imagen: "/images/products/download.jpeg",
             comentarios: [{
                 usuario: "comprador1",
                 texto: "Excelente producto, muy recomendado!",

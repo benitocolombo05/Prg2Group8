@@ -461,7 +461,11 @@ textarea.form-input {
 }
 
 .foto-perfil{
-  border-radius: 50%;
+  width: 150px;   
+    height: 150px;  
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .main-title{
