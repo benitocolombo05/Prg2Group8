@@ -1,64 +1,30 @@
 const db = {
-    perfil: {
-        email: "Agustin12@digitalhouse.com",
-        usuario: "Agustin",
+    usuario: {
+        email: "usuario@example.com",
+        usuario: "usuario123",
         contrasena: "password123",
         fechaNacimiento: "1990-01-01",
         nroDocumento: 12345678,
-        fotoPerfil: "/images/products/images.png"
+        fotoPerfil: "/imagenes/products/default-image.png"
     },
     productos: [
         {
             id: 1,
-            nombre: "Cafetera",
-            descripcion: "Descubre el placer de un café perfecto con esta cafetera automática de alta gama. Su sistema de extracción de alta presión garantiza un sabor intenso y un aroma inigualable en cada taza. Con un diseño moderno y compacto, se adapta a cualquier cocina y permite preparar desde un espresso fuerte hasta un cappuccino cremoso gracias a su espumador de leche integrado. Su depósito de agua de gran capacidad evita recargas constantes y su compatibilidad con café molido y cápsulas ofrece mayor versatilidad. Disfruta de la calidad de una cafetería en la comodidad de tu hogar.",
+            nombre: "Producto 1",
+            descripcion: "Descripcion producto 1",
             precio: 1000,
-            imagen: "/images/products/img-cafetera-moulinex.jpg",
+            imagen: "/imagenes/products/default-image.png",
             comentarios: [
                 {
-                    usuario: "Tung",
+                    usuario: "comprador1",
                     texto: "Excelente producto, muy recomendado!",
-                    imagenPerfil: "/images/users/TungTungTungSahur.webp"
+                    imagenPerfil: "/imagenes/products/default-image.png"
                 },
                 {
-                    usuario: "Martin",
+                    usuario: "comprador2",
                     texto: "No era lo que esperaba, medio pelo.",
-                    imagenPerfil: "/images/users/images.jpeg"
-                },
-                {
-                    usuario: "Benito",
-                    texto: "Me encantó, superó mis expectativas.",
-                    imagenPerfil: "/images/users/dybala.jpg"
-                },
-                {
-                    usuario: "Tomas",
-                    texto: "Buena calidad por el precio.",
-                    imagenPerfil: "/images/users/ronaldo.jpg"
-                },
-                {
-                    usuario: "Emilio",
-                    texto: "Lo volvería a comprar sin dudas.",
-                    imagenPerfil: "/images/users/dino.png"
-                },
-                {
-                    usuario: "Agustina",
-                    texto: "El diseño es hermoso, tal como en la foto.",
-                    imagenPerfil: "/images/users/tini.webp"
-                },
-                {
-                    usuario: "Francisca",
-                    texto: "Tuve un problema y lo resolvieron al toque.",
-                    imagenPerfil: "/images/users/taylor.jpeg"
-                },
-                {
-                    usuario: "Juan",
-                    texto: "Ideal para regalar, a todos les gustó.",
-                    imagenPerfil: "/images/users/ricky.jpg"
-                },{
-                    usuario: "Tomas",
-                    texto: "Cumple con lo prometido, lo recomiendo.",
-                    imagenPerfil: "/images/users/sopa.jpeg"
-                },
+                    imagenPerfil: "/imagenes/products/default-image.png"
+                }
             ]
         },
         {
@@ -71,7 +37,7 @@ const db = {
                 {
                     usuario: "comprador3",
                     texto: "Gran producto!",
-                    imagenPerfil: "/images/products/default-image.png"
+                    imagenPerfil: "/imagenes/products/default-image.png"
                 }
             ]
         },
@@ -84,7 +50,7 @@ const db = {
             comentarios: [{
                 usuario: "comprador1",
                 texto: "Excelente producto, muy recomendado!",
-                imagenPerfil: "/images/products/default-image.png"
+                imagenPerfil: "/imagenes/products/default-image.png"
             },
             {
                 usuario: "comprador2",
