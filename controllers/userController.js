@@ -6,7 +6,12 @@ const userController = {
 
     profile: (req, res) => res.render('profile.ejs', { usuario: db.perfil.usuario, 
         correo: db.perfil.email, 
-        foto: db.perfil.fotoPerfil }),
+        foto: db.perfil.fotoPerfil,
+        nombreProducto: db.productos[0].nombre,
+        descripcionProducto: db.productos[0].descripcion,
+       imagenProducto: db.productos[0].imagen,
+       comentariosProducto: db.productos[0].comentarios,
+       productos: db.productos}),
         
     buscar: (req, res) => res.render('search-results.ejs'),
 }
