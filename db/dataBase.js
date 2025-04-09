@@ -63,7 +63,7 @@ const db = {
         },
         {
             id: 2,
-            nombre: "Producto 2",
+            nombre: "Thermomix",
             descripcion: "Robot de cocina multifuncional que mezcla, tritura, cocina al vapor y pesa ingredientes con precisión, ideal para recetas rápidas y elaboradas con mínima intervención.",
             precio: 1500,
             imagen: "/images/products/airfry.webp",
@@ -77,7 +77,7 @@ const db = {
         },
         {
             id: 3,
-            nombre: "Producto 3",
+            nombre: "Olla Essen",
             descripcion: "Olla de aluminio fundido con recubrimiento antiadherente que conserva el calor y cocina de manera uniforme, permitiendo preparar comidas saludables con menos grasa y energía.",
             precio: 1200,
             imagen: "/images/products/Cacerola.jpg",
@@ -94,7 +94,7 @@ const db = {
         },
         {
             id: 4,
-            nombre: "Producto 4",
+            nombre: "Air fyer",
             descripcion: "Freidora de aire que cocina con poco o nada de aceite, logrando alimentos crujientes y saludables mediante circulación de aire caliente, perfecta para freír, hornear y asar.",
             precio: 1800,
             imagen: "/images/products/download.jpeg",

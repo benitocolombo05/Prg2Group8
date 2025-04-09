@@ -43,6 +43,10 @@ a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+a:hover{
+  color:var(--gray);
 }
 
 figure {
@@ -68,7 +72,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--light-blue);
+  background: linear-gradient(to bottom, #2f82ff, #9cc4ff);
 }
 
 .main-header_home-link,
@@ -517,7 +521,7 @@ textarea.form-input {
 
   .left-navbar a:hover,
   .right-navbar a:hover {
-    color: var(--yellow);
+    color: var(--gray);
   }
 
   .left-navbar li {
