@@ -13,7 +13,7 @@ const userController = {
        comentariosProducto: db.productos[0].comentarios,
        productos: db.productos}),
         
-    buscar: (req, res) => res.render('search-results.ejs'),
+    
 }
 
 module.exports = userController
