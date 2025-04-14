@@ -590,3 +590,10 @@ input {
   width: 100%;
 
 }
+.footerNuevo{
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+  color: #0f2d51;
+  margin: 16px;
+}
