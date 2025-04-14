@@ -21,17 +21,18 @@
 			</div>
 			<% for (let i = 0; i < productos.length; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/products">
-							<figure class="product-box_image">
+						<a href="/products/<%= productos[i].id %>">
+							<section class="product-box">
+							  <figure class="product-box_image">
 								<img src="<%= productos[i].imagen %>" alt="">
-							</figure>
-							<article class="product-box_data">
+							  </figure>
+							  <article class="product-box_data">
 								<h2><%= productos[i].nombre %></h2>
 								<p><%= productos[i].descripcion %></p>
 								<p>Comentarios: <%= productos[i].comentarios.length %></p>
-							</article>
-						</a>
+							  </article>
+							</section>
+						  </a>
 					</section>
 				</div>
 			<% } %>
