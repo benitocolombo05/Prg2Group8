@@ -30,7 +30,7 @@
 								<img src="<%= comentariosProducto[i].imagenPerfil %>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong><a href="/profile"><%= comentariosProducto[i].usuario %>: </a></strong>
+										<strong><a href="/users/profile"><%= comentariosProducto[i].usuario %>: </a></strong>
 										<%= comentariosProducto[i].texto %>
 									</p>
 								</div>
@@ -38,7 +38,7 @@
 						<% } %>
 
 					</section>
-					<form class="form" action="/" method="POST">
+					<form class="form" action="/products" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
