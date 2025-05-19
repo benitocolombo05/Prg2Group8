@@ -1,4 +1,9 @@
 const db = require("../db/dataBase");
+const DB = require("../database/models")
+
+let User = db.User
+
+
 const userController = {
     login: (req, res) => res.render('login.ejs'),
 
@@ -13,7 +18,15 @@ const userController = {
        comentariosProducto: db.productos[0].comentarios,
        productos: db.productos}),
         
-    
+       prueba: (req, res) => {
+        DB.Product.findAll()
+            .then(productos => {
+                res.send(productos); 
+            })
+            .catch(error => {
+                res.send('Error: ' + error);
+            });
+    }
 }
 
 module.exports = userController
