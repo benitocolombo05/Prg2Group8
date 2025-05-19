@@ -7,6 +7,7 @@ router.get('/login', userController.login)
 router.get('/register', userController.register)
 router.get('/profile', userController.profile)
 router.get('/prueba', userController.prueba)
+router.post('/registerProcessor', userController.registerProcessor);
 
 
 module.exports = router;

@@ -1,8 +1,9 @@
-CREATE DATABASE mi_base_de_datos_final;
-USE mi_base_de_datos_final;
+CREATE DATABASE mi_base_de_datos_entrega_final;
+USE mi_base_de_datos_entrega_final;
 
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     contrasenia VARCHAR(255) NOT NULL,
     fecha_nacimiento DATE NOT NULL,
@@ -37,16 +38,16 @@ CREATE TABLE comentarios (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
 
-INSERT INTO usuarios (email, contrasenia, fecha_nacimiento, nro_documento, foto_perfil) VALUES
-('Agustin12@digitalhouse.com', 'password123', '1990-01-01', 12345678, '/images/users/sopa.jpeg'),
-('tung@mail.com', 'clave123', '1991-02-02', 22345678, '/images/users/TungTungTungSahur.webp'),
-('martin@mail.com', 'clave123', '1992-03-03', 32345678, '/images/users/images.jpeg'),
-('benito@mail.com', 'clave123', '1993-04-04', 42345678, '/images/users/dybala.jpg'),
-('tomas@mail.com', 'clave123', '1994-05-05', 52345678, '/images/users/ronaldo.jpg'),
-('emilio@mail.com', 'clave123', '1995-06-06', 62345678, '/images/users/dino.png'),
-('agustina@mail.com', 'clave123', '1996-07-07', 72345678, '/images/users/tini.webp'),
-('francisca@mail.com', 'clave123', '1997-08-08', 82345678, '/images/users/taylor.jpeg'),
-('juan@mail.com', 'clave123', '1998-09-09', 92345678, '/images/users/ricky.jpg');
+INSERT INTO usuarios (nombre, email, contrasenia, fecha_nacimiento, nro_documento, foto_perfil) VALUES
+('Agustin', 'Agustin12@digitalhouse.com', 'password123', '1990-01-01', 12345678, '/images/users/sopa.jpeg'),
+('Tung', 'tung@mail.com', 'clave123', '1991-02-02', 22345678, '/images/users/TungTungTungSahur.webp'),
+('Martin', 'martin@mail.com', 'clave123', '1992-03-03', 32345678, '/images/users/images.jpeg'),
+('Benito', 'benito@mail.com', 'clave123', '1993-04-04', 42345678, '/images/users/dybala.jpg'),
+('Tomas', 'tomas@mail.com', 'clave123', '1994-05-05', 52345678, '/images/users/ronaldo.jpg'),
+('Emilio', 'emilio@mail.com', 'clave123', '1995-06-06', 62345678, '/images/users/dino.png'),
+('Agustina', 'agustina@mail.com', 'clave123', '1996-07-07', 72345678, '/images/users/tini.webp'),
+('Francisca', 'francisca@mail.com', 'clave123', '1997-08-08', 82345678, '/images/users/taylor.jpeg'),
+('Juan', 'juan@mail.com', 'clave123', '1998-09-09', 92345678, '/images/users/ricky.jpg');
 
 INSERT INTO productos (usuario_id, imagen, nombre, descripcion) VALUES
 (1, '/images/products/img-cafetera-moulinex.jpg', 'Cafetera', 'Descubre el placer de un café perfecto con esta cafetera automática de alta gama...'),
