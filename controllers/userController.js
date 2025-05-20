@@ -8,7 +8,7 @@ let User = db.User
 const userController = {
     login: (req, res) => res.render('login.ejs'),
 
-    register: (req, res) => res.render('register.ejs'),
+    register: (req, res) => res.render('register.ejs', { error: null }),
 
     profile: (req, res) => res.render('profile.ejs', {
         usuario: db.perfil.usuario,
@@ -32,35 +32,43 @@ const userController = {
     },
     registerProcessor: function (req, res) {
         // Procesar el formulario y guardar el nuevo usuario
-        DB.User.create({
-            email: req.body.email,
-            nombre: req.body.usuario,
-            fecha_nacimiento: req.body.fechaNacimiento,
-            nro_documento: parseInt(req.body.nroDocumento),
-            foto_perfil: req.body.fotoPerfil,
-            contrasenia: bcrypt.hashSync(req.body.contrasenia, 10)
+        if (!req.body.usuario) {
+            return res.render("register", { error: "El usuario es obligatorio" })
+        }
+
+        if (!req.body.email) {
+            return res.render("register", { error: "El email es obligatorio" })
+        }
+
+        if (!req.body.contrasenia || req.body.contrasenia.length < 3) {
+            return res.render("register", { error: "La contraseña debe tener al menos 3 caracteres" })
+        }
+        DB.User.findOne({
+            where: { email: req.body.email }
         })
-            .then(function () {
-                return res.redirect("/users/login");
+            .then(function (usuarioExistente) {
+                if (usuarioExistente) {
+                    return res.render("register", { error: "Email existente." })
+                }
+                else {
+                    return DB.User.create({
+                        email: req.body.email,
+                        nombre: req.body.usuario,
+                        fecha_nacimiento: req.body.fechaNacimiento,
+                        nro_documento: parseInt(req.body.nroDocumento),
+                        foto_perfil: req.body.fotoPerfil,
+                        contrasenia: bcrypt.hashSync(req.body.contrasenia, 10)
+                    })
+                }
+            })
+
+            .then(function (usuarioCreado) {
+                if (usuarioCreado) {
+                    return res.redirect("/users/login");
+                }
             })
             .catch(function (error) {
-                console.error("Error al crear el usuario:");
-
-                // 1. Mostrar el mensaje general del error
-                console.error("Mensaje:", error.message);
-
-                // 2. Mostrar errores específicos de validación de Sequelize (si los hay)
-                if (error.errors && error.errors.length > 0) {
-                    error.errors.forEach((e, i) => {
-                        console.error(` - Error ${i + 1}:`);
-                        console.error(`   - Campo: ${e.path}`);
-                        console.error(`   - Tipo: ${e.validatorKey}`);
-                        console.error(`   - Mensaje: ${e.message}`);
-                    });
-                }
-
-                // 3. Mandar respuesta útil al cliente
-                res.status(500).send("Hubo un error al registrar el usuario. Revisá la consola para más detalles.");
+                console.error(error);
             });
     },
     loginProcessor: function (req, res) {
@@ -80,10 +88,9 @@ const userController = {
 
                 return res.redirect("/");
             })
-            .catch(function(error) {
-        console.error("Error en login:", error);
-        res.status(500).send("hubo un error con la base de datos o el servidor");
-    });
+            .catch(function (error) {
+                console.error(error);
+            });
     }
 }
 
