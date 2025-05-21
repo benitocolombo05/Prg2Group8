@@ -12,7 +12,11 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
+				<% if (productos.length != 0){ %>
 				<h2 class="products-title">Resultados de búsqueda</h2>
+				<% } else { %>
+					<h2 class="products-title">No se encontraron resultados para su criterio de busqueda</h2>
+				<% } %>
 				<div class="container products-wrapper">
 					<div class="row">
 						<!-- Show the "ultimos" products -->
@@ -26,11 +30,11 @@
 										  <article class="product-box_data">
 											<h2><%= productos[i].nombre %></h2>
 											<p><%= productos[i].descripcion %></p>
-											<p>Comentarios: <%= productos[i].comentarios.length %></p>
+											<p>Comentarios:<%= productos[i].comentarios.length %></p>
+											<a><%= productos[i].usuario.nombre%></a>
 										  </article>
 										</section>
-									  </a>
-								</section>
+									</a>
 							</div>
 						<% } %>			
 					</div>

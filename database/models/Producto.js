@@ -35,14 +35,18 @@ module.exports = function (sequelize, dataTypes) {
 
     let Product = sequelize.define(alias, cols, config);
 
-    Product.associate = function(models) {
-        
+    Product.associate = function (models) {
+
         Product.belongsTo(models.User, {        /// Cada producto está vinculado a un solo usuario (1:1 desde el lado del producto).
             as: "usuario",                     /// Un usuario puede tener muchos productos. (ahora hay que hacer la relacion en el modelo usuarios).
             foreignKey: "usuario_id"
-        }); 
-    
+        });
+        Product.hasMany(models.Comment, {
+            as: "comentarios",
+            foreignKey: "producto_id"
+        });
+
     }
-    
-        return Product;
+
+    return Product;
 }
