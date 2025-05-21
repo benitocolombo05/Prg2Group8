@@ -33,6 +33,9 @@
 				<label for="recordarme">Recordarme:</label>
 				<input type="checkbox" id="recordarme" name="recordarme">
 			</div>
+				<% if (error) {%>
+				<p style="display: flex; justify-content: center; color: red; font-size: 15px; font-weight: bolder;"><%=error%></p>
+				<% } %>
 				<button class="buttonform"  type="submit">Entrar</button>
 			  </form>
 	</section>

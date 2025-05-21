@@ -6,7 +6,7 @@ let User = db.User
 
 
 const userController = {
-    login: (req, res) => res.render('login.ejs'),
+    login: (req, res) => res.render('login.ejs',{ error: null}),
 
     register: (req, res) => res.render('register.ejs', { error: null }),
 
@@ -77,13 +77,22 @@ const userController = {
         })
             .then(function (user) {
                 if (!user) {
-                    return res.send("email inexistente");
+                    return res.render("login", { error: "Email incorrecto" })
                 }
 
                 let check = bcrypt.compareSync(req.body.contrasenia, user.contrasenia);
 
                 if (!check) {
-                    return res.send("pusiste mal la contraseña zapallo");
+                    return res.render("login", { error: "Contraseña incorrecta" })
+                }
+                if ((check) && (req.body.recordarme)){
+                    req.session.user = {
+                        email: user.email,
+                        usuario: user.nombre,
+                    }
+                    res.cookie('usuario', {email: user.email,
+                    usuario: user.nombre} ,{ maxAge: 1000 * 60 * 2 })
+                    
                 }
 
                 return res.redirect("/");
