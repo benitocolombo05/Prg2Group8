@@ -5,13 +5,23 @@ const Op = DB.Sequelize.Op;
 
 const productsController = {
     index: function (req, res) {
-        return res.render("products.ejs", {
-            nombreProducto: db.productos[0].nombre,
-            descripcionProducto: db.productos[0].descripcion,
-            imagenProducto: db.productos[0].imagen,
-            comentariosProducto: db.productos[0].comentarios,
-            productos: db.productos
+        console.log(req.params.id)
+        DB.Product.findByPk(req.params.id, {
+            include: [{
+        model: DB.Comment,
+        as: 'comentarios',
+        include: [{ // incluye el usuario dentro de cada comentario
+            model: DB.User,
+            as: 'usuario'
+        }]
+    }, {
+        model: DB.User,
+        as: 'usuario' // este sería el usuario dueño del producto, si querés mostrarlo también
+    }]
         })
+        .then(function (producto) {
+            return res.render('products.ejs', { productos: producto });
+        });
     },
 
     add: (req, res) => res.render("product-add.ejs", { usuario: db.perfil.usuario }),
