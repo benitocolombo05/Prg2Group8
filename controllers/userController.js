@@ -6,23 +6,36 @@ let User = db.User
 
 
 const userController = {
-    login: (req, res) => res.render('login.ejs',{ error: null}),
+    login: (req, res) => res.render('login.ejs', { error: null }),
 
     register: (req, res) => res.render('register.ejs', { error: null }),
 
-    profile: (req, res) => res.render('profile.ejs', {
-        usuario: db.perfil.usuario,
-        correo: db.perfil.email,
-        foto: db.perfil.fotoPerfil,
-        nombreProducto: db.productos[0].nombre,
-        descripcionProducto: db.productos[0].descripcion,
-        imagenProducto: db.productos[0].imagen,
-        comentariosProducto: db.productos[0].comentarios,
-        productos: db.productos
-    }),
+    myprofile: function (req, res) {
+        DB.User.findByPk(req.session.user.id, {
+            include: [{
+                model: DB.Product,
+                as: "productos",
+            }]
+        })
+            .then(function (user) {
+                return res.render('profile', { usuario: user });
+            });
+    },
+    profile: function (req, res) {
+        DB.User.findByPk(req.params.id, {
+            include: [{
+                model: DB.Product,
+                as: "productos",
+            }]
+        })
+            .then(function (user) {
+                return res.render('profile', { usuario: user });
+            });
+    },
+    
 
     prueba: (req, res) => {
-        DB.User.findAll()
+        DB.Product.findAll()
             .then(productos => {
                 res.send(productos);
             })
@@ -85,14 +98,18 @@ const userController = {
                 if (!check) {
                     return res.render("login", { error: "Contraseña incorrecta" })
                 }
-                if ((check) && (req.body.recordarme)){
+                if ((check) && (req.body.recordarme)) {
                     req.session.user = {
+                        id: user.id,
                         email: user.email,
                         usuario: user.nombre,
                     }
-                    res.cookie('usuario', {email: user.email,
-                    usuario: user.nombre} ,{ maxAge: 1000 * 60 * 2 })
-                    
+                    res.cookie('usuario', {
+                        id: user.id,
+                        email: user.email,
+                        usuario: user.nombre
+                    }, { maxAge: 1000 * 60 * 2 })
+
                 }
 
                 return res.redirect("/");

@@ -22,7 +22,7 @@
 					<p class="product-detail-description">
 						<%=productos.descripcion%>
 					</p>
-					<p class="product-detail-description" style="font-weight: 400;"><strong>Subido por: <%=productos.usuario.nombre%></strong></p>
+					<p class="product-detail-description" style="font-weight: 400;"><strong><a href="/users/profile/<%=productos.usuario.id%>">Subido por: <%=productos.usuario.nombre%></a></strong></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
@@ -32,7 +32,7 @@
 								<img src="<%= productos.comentarios[i].usuario.foto_perfil %>" alt="">
 								<div class="data">
 									<p class="user">
-										<strong><a href="/users/profile"><%= productos.comentarios[i].usuario.nombre %>:</a></strong>
+										<strong><a href="/users/profile/<%= productos.comentarios[i].usuario.id %>"><%= productos.comentarios[i].usuario.nombre %>:</a></strong>
 										<%= productos.comentarios[i].texto %>
 									</p>
 								</div>

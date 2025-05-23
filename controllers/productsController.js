@@ -1,5 +1,5 @@
 const DB = require("../database/models")
-const db = require("../db/dataBase");
+
 const Op = DB.Sequelize.Op;
 
 
@@ -9,15 +9,15 @@ const productsController = {
         DB.Product.findByPk(req.params.id, {
             include: [{
         model: DB.Comment,
-        as: 'comentarios',
-        include: [{ // incluye el usuario dentro de cada comentario
+        as: "comentarios",
+        include: [{ 
             model: DB.User,
-            as: 'usuario'
+            as: "usuario"
         }]
-    }, {
+        }, {
         model: DB.User,
-        as: 'usuario' // este sería el usuario dueño del producto, si querés mostrarlo también
-    }]
+        as: "usuario"
+        }]
         })
         .then(function (producto) {
             return res.render('products.ejs', { productos: producto });
@@ -33,10 +33,10 @@ const productsController = {
             }],
             include: [{
             model: DB.Comment,
-            as: 'comentarios' 
+            as: "comentarios" 
             },{
                 model: DB.User,
-                as: 'usuario'
+                as: "usuario"
             }],
             
         })

@@ -31,6 +31,7 @@ app.use(session({
 app.use(function (req, res, next) {
   if (req.session.user != undefined) {
     res.locals.usuarioLogueado = {
+      idDeUsuario: req.session.user.id,
       nombreDeUsuario: req.session.user.usuario,
       emailDeUsuario: req.session.user.email
     };
@@ -41,6 +42,7 @@ app.use(function (req, res, next) {
 app.use((req, res, next) => {
     if (!req.session.user && req.cookies.usuario) {
         req.session.user = {
+            id: req.cookies.usuario.id,
             email: req.cookies.usuario.email,
             usuario: req.cookies.usuario.usuario
         };
