@@ -5,7 +5,7 @@
 
 <body>
 	<!-- Header -->
-	<%- include('partials/headerLogueado', { usuario }) %>
+	<%- include('partials/headerLogueado') %>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -14,10 +14,10 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
-			<form action="/" method="get" class="formulario"> 
+			<form action="/products/productProcessor" method="post" class="formulario"> 
 			<div>
 				 <label for="img">Imagen:</label> 
-				 <input type="file" name="img" id="img" required>
+				 <input type="text" name="img" id="img" required>
 				</div>
 			<div>
 				 <label for="prodName">Nombre del producto:</label>
