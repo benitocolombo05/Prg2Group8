@@ -2,7 +2,6 @@ const db = require("../db/dataBase");
 const DB = require("../database/models")
 const bcrypt = require("bcryptjs")
 
-let User = db.User
 
 
 const userController = {
@@ -35,7 +34,7 @@ const userController = {
     
 
     prueba: (req, res) => {
-        DB.Product.findAll()
+        DB.Comment.findAll()
             .then(productos => {
                 res.send(productos);
             })
@@ -44,7 +43,6 @@ const userController = {
             });
     },
     registerProcessor: function (req, res) {
-        // Procesar el formulario y guardar el nuevo usuario
         if (!req.body.usuario) {
             return res.render("register", { error: "El usuario es obligatorio" })
         }

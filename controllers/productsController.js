@@ -43,6 +43,25 @@ const productsController = {
                 console.error(error);
             });
     },
+    commentProcessor: function (req,res) {
+        if (req.session.user != undefined){
+        DB.Comment.create({
+            usuario_id: req.session.user.id,
+            producto_id: req.params.id,
+            texto: req.body.comentario,
+        })
+        .then(function (commentCreado) {
+                if (commentCreado) {
+                    return res.redirect(`/products/${req.params.id}`);
+                }
+            })
+        .catch(function (error) {
+                console.error(error);
+            });
+        } else {
+            return res.redirect(`/users/login`);
+        }
+    },
 
     buscar: function (req, res) {
         DB.Product.findAll({
