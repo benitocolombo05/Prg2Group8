@@ -28,6 +28,17 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use((req, res, next) => {
+    if (!req.session.user && req.cookies.usuario) {
+        req.session.user = {
+            id: req.cookies.usuario.id,
+            email: req.cookies.usuario.email,
+            usuario: req.cookies.usuario.usuario
+        };
+    }
+    next();
+});
+
 app.use(function (req, res, next) {
   if (req.session.user != undefined) {
     res.locals.usuarioLogueado = {
@@ -39,16 +50,6 @@ app.use(function (req, res, next) {
   return next();
 });
 
-app.use((req, res, next) => {
-    if (!req.session.user && req.cookies.usuario) {
-        req.session.user = {
-            id: req.cookies.usuario.id,
-            email: req.cookies.usuario.email,
-            usuario: req.cookies.usuario.usuario
-        };
-    }
-    next();
-});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -34,7 +34,7 @@ const userController = {
     
 
     prueba: (req, res) => {
-        DB.Comment.findAll()
+        DB.User.findAll()
             .then(productos => {
                 res.send(productos);
             })
@@ -96,12 +96,12 @@ const userController = {
                 if (!check) {
                     return res.render("login", { error: "Contraseña incorrecta" })
                 }
-                if ((check) && (req.body.recordarme)) {
-                    req.session.user = {
+                req.session.user = {
                         id: user.id,
                         email: user.email,
                         usuario: user.nombre,
                     }
+                if ((check) && (req.body.recordarme)) {
                     res.cookie('usuario', {
                         id: user.id,
                         email: user.email,

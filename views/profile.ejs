@@ -4,9 +4,11 @@
 <%- include('partials/head') %>
 
 <body>
-	<!-- Header -->
+	<% if (locals.usuarioLogueado != undefined) {%>
 	<%- include('partials/headerLogueado') %>
-	<!-- /Header -->
+	<% } else {%>
+		<%- include('partials/header') %>
+	<% } %>
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
