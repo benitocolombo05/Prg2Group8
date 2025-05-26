@@ -115,8 +115,16 @@ const userController = {
             .catch(function (error) {
                 console.error(error);
             });
+    },
+    logout: function (req, res) {
+            req.session.destroy(),
+            res.clearCookie("usuario")
+                    res.redirect("/")
+    
+          
+        }
     }
-}
+
 
 module.exports = userController
 

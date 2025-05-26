@@ -8,6 +8,7 @@ router.get('/register', userController.register)
 router.get('/myprofile', userController.myprofile)
 router.get('/profile/:id', userController.profile)
 router.get('/prueba', userController.prueba)
+router.get("/logout", userController.logout)
 
 router.post('/registerProcessor', userController.registerProcessor);
 router.post('/loginProcessor', userController.loginProcessor);
