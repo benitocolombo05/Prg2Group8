@@ -5,15 +5,34 @@ const bcrypt = require("bcryptjs")
 
 
 const userController = {
-    login: (req, res) => res.render('login.ejs', { error: null }),
-
-    register: (req, res) => res.render('register.ejs', { error: null }),
-
+    login: function (req, res) {
+        if (req.session.user != undefined){
+            return res.redirect("/users/myprofile")
+        } else {
+            return res.render("login", { error: null })
+        }
+    
+    
+    },
+    register: function (req, res) {
+        if (req.session.user != undefined){
+            return res.redirect("/users/myprofile")
+        } else {
+            return res.render("register", { error: null })
+        }
+    
+    
+    },
+    
     myprofile: function (req, res) {
         DB.User.findByPk(req.session.user.id, {
             include: [{
                 model: DB.Product,
                 as: "productos",
+            },
+            {
+                model: DB.Comment,
+                as: "comentarios"
             }]
         })
             .then(function (user) {
@@ -25,15 +44,19 @@ const userController = {
             include: [{
                 model: DB.Product,
                 as: "productos",
+            },
+            {
+                model: DB.Comment,
+                as: "comentarios"
             }]
         })
             .then(function (user) {
                 return res.render('profile', { usuario: user });
             });
     },
-    
 
-    prueba: (req, res) => {
+
+    pruebaDatabase: (req, res) => {
         DB.User.findAll()
             .then(productos => {
                 res.send(productos);
@@ -97,10 +120,10 @@ const userController = {
                     return res.render("login", { error: "Contraseña incorrecta" })
                 }
                 req.session.user = {
-                        id: user.id,
-                        email: user.email,
-                        usuario: user.nombre,
-                    }
+                    id: user.id,
+                    email: user.email,
+                    usuario: user.nombre,
+                }
                 if ((check) && (req.body.recordarme)) {
                     res.cookie('usuario', {
                         id: user.id,
@@ -117,13 +140,13 @@ const userController = {
             });
     },
     logout: function (req, res) {
-            req.session.destroy(),
+        req.session.destroy(),
             res.clearCookie("usuario")
-                    res.redirect("/")
-    
-          
-        }
+        res.redirect("/")
+
+
     }
+}
 
 
 module.exports = userController

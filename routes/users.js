@@ -7,7 +7,7 @@ router.get('/login', userController.login)
 router.get('/register', userController.register)
 router.get('/myprofile', userController.myprofile)
 router.get('/profile/:id', userController.profile)
-router.get('/prueba', userController.prueba)
+router.get('/prueba', userController.pruebaDatabase)
 router.get("/logout", userController.logout)
 
 router.post('/registerProcessor', userController.registerProcessor);

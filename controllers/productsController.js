@@ -59,7 +59,7 @@ const productsController = {
                 console.error(error);
             });
         } else {
-            return res.redirect(`/users/login`);
+            return res.render("login", {error: "Logueate para comentar"});
         }
     },
 
