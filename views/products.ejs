@@ -4,8 +4,13 @@
 <%- include('partials/head') %>
 <body>
 	<!-- Header -->
-	<%- include('partials/header') %>
+	<% if (locals.usuarioLogueado != undefined) {%>
+	<%- include('partials/headerLogueado') %>
+	<% } else {%>
+		<%- include('partials/header') %>
+	<% } %>
 	<!-- /Header -->
+
 	
 	<!-- product detail -->
 	<div class="container products-wrapper">
